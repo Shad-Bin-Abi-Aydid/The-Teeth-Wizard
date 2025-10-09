@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "treatment": "Teeth Cleaning",
+    "image": "https://i.ibb.co/9CmHg1P/Chat-GPT-Image-Oct-9-2025-09-54-21-AM.png",
+    "short_description": "Professional dental cleaning to remove plaque and tartar buildup for a healthy, bright smile.",
+    "cost": 60
+  },
+  {
+    "id": 2,
+    "treatment": "Tooth Extraction",
+    "image": "https://i.ibb.co/ZpKLDhM5/download.jpg",
+    "short_description": "Safe and painless removal of damaged or decayed teeth by experienced dental professionals.",
+    "cost": 90
+  },
+  {
+    "id": 3,
+    "treatment": "Root Canal Treatment",
+    "image": "https://i.ibb.co/ymsdQ1nB/download-1.jpg",
+    "short_description": "Advanced procedure to save infected teeth and relieve pain while preserving natural structure.",
+    "cost": 250
+  },
+  {
+    "id": 4,
+    "treatment": "Dental Filling",
+    "image": "https://i.ibb.co/ZpKLDhM5/download.jpg",
+    "short_description": "Restores teeth damaged by cavities using high-quality, natural-looking materials.",
+    "cost": 80
+  },
+  {
+    "id": 5,
+    "treatment": "Teeth Whitening",
+    "image": "https://i.ibb.co/9CmHg1P/Chat-GPT-Image-Oct-9-2025-09-54-21-AM.png",
+    "short_description": "Brighten your smile with safe, effective whitening treatment that removes deep stains.",
+    "cost": 120
+  },
+  {
+    "id": 6,
+    "treatment": "Dental Implants",
+    "image": "https://i.ibb.co/ymsdQ1nB/download-1.jpg",
+    "short_description": "Permanent solution to replace missing teeth, improving both appearance and functionality.",
+    "cost": 900
+  },
+  {
+    "id": 7,
+    "treatment": "Braces (Orthodontics)",
+    "image": "https://i.ibb.co/9CmHg1P/Chat-GPT-Image-Oct-9-2025-09-54-21-AM.png",
+    "short_description": "Straighten misaligned teeth and enhance your smile with modern orthodontic treatment.",
+    "cost": 1500
+  },
+  {
+    "id": 8,
+    "treatment": "Dental Check-up",
+    "image": "https://i.ibb.co/ZpKLDhM5/download.jpg",
+    "short_description": "Comprehensive dental examination to detect issues early and maintain oral health.",
+    "cost": 50
+  }
+]
