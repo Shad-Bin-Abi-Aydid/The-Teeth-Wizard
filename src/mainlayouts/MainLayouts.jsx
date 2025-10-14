@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 const MainLayouts = () => {
     return (
-        <div>
+        <div className='space-y-5'>
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>
