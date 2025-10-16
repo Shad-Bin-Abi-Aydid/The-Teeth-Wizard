@@ -39,7 +39,20 @@ const router = createBrowserRouter([
                     const singleData = data.find(d => d.id == params.id)
                     return singleData;
                 }
-            }
+            },
+            {
+                path:'/allTreatments/details/:id',
+                element:<Details></Details>,
+                loader:async ({params}) =>{
+                    const res = await fetch('/service.json')
+                    const data = await res.json()
+                    const singleData = data.find(d => d.id == params.id)
+                    return singleData;
+                }
+
+            },
+        
+        
         ]
     }
 ])
