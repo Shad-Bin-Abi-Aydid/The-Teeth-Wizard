@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
+  const { handleLogOut, user } = useContext(AuthContext);
+
   const links = (
     <div className="flex flex-col md:flex-row justify-center items-center gap-5">
       <NavLink
@@ -28,14 +31,25 @@ const Navbar = () => {
       >
         My Appointments
       </NavLink>
-      <NavLink
-        to="/profile"
-        className={({ isActive }) =>
-          isActive ? "text-orange-500 font-bold" : " "
-        }
-      >
-        Profile
-      </NavLink>
+      {user ? (
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            isActive ? "text-orange-500 font-bold" : " "
+          }
+        >
+          Profile
+        </NavLink>
+      ) : (
+        <NavLink
+          to="/register"
+          className={({ isActive }) =>
+            isActive ? "text-orange-500 font-bold" : " "
+          }
+        >
+          Register
+        </NavLink>
+      )}
     </div>
   );
   return (
@@ -72,7 +86,18 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-accent">Login</a>
+        {user ? (
+          <>
+            <p>{user.email}</p>
+            <button onClick={handleLogOut} className="btn btn-accent">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <NavLink to="/login" className="btn btn-accent">
+            Login
+          </NavLink>
+        )}
       </div>
     </div>
   );
