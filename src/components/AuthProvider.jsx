@@ -60,11 +60,12 @@ const AuthProvider = ({children}) => {
             
             if(currentUser){
                 setUser(currentUser)
-                setLoading(false)
+                
             }
             else{
                 setUser(null)
             }
+            setLoading(false)
 
             return () =>{
                 unsubscribe();

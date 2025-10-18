@@ -27,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myAppointments",
-        element: <MyAppointments></MyAppointments>,
+        element: (
+          <PrivateRouter>
+            <MyAppointments></MyAppointments>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/profile",

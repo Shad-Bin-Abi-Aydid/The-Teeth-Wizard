@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "./AuthProvider";
 
-const Modal = () => {
+const Modal = ({ treatment }) => {
+  const { user } = useContext(AuthContext);
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
 
-  }
+    const fname = e.target.Fname.value;
+    const lname = e.target.Lname.value;
+    const email = e.target.email.value;
+    const selectedTreatment = treatment;
+
+    // data save in local storage
+    const info = {
+      fname,
+      lname,
+      email,
+      selectedTreatment,
+    };
+
+    let saveData = [];
+
+    const localData = localStorage.getItem("appointments");
+
+    if (localData) {
+      saveData = JSON.parse(localData);
+    }
+
+    saveData.push(info);
+
+    localStorage.setItem("appointments", JSON.stringify(saveData));
+  };
 
   return (
     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
@@ -44,6 +69,7 @@ const Modal = () => {
               placeholder="Enter email"
               className="input input-bordered w-full"
               name="email"
+              value={user?.email}
             />
           </div>
 
@@ -78,7 +104,9 @@ const Modal = () => {
               name="address"
             />
           </div>
-          <button className="btn btn-primary" type="submit">Make Appointment</button>
+          <button className="btn btn-primary" type="submit">
+            Make Appointment
+          </button>
         </form>
 
         {/* Modal Action */}

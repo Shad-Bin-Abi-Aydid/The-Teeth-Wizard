@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "./AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { handleGoogleLogin,handleLogin } = useContext(AuthContext);
   const [error, setError] = useState(" ");
   const navigate = useNavigate()
+  const location = useLocation();
+
+  console.log(location)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,11 +18,14 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+
     handleLogin(email, password)
     .then(res =>{
         const user = res.user;
         console.log(user)
-        navigate('/')
+        {
+          location.state ? navigate(location.state.from): navigate('/')
+        }
     })
     .catch(error =>{
         console.log('Error -> ', error.message)
@@ -28,6 +34,17 @@ const Login = () => {
 
 
   };
+
+
+  const handleGooLogin = () =>{
+      handleGoogleLogin()
+      .then(res =>{
+        {
+          location.state ? navigate(location.state.from): navigate('/')
+        }
+      })
+    }
+
   return (
     <div className="min-h-screen flex justify-center items-center px-10">
       <form className="w-full max-w-md" onSubmit={handleSubmit}>
@@ -52,16 +69,16 @@ const Login = () => {
             <a className="link link-hover">Forgot password?</a>
           </div>
           <div>
-            <a className="link link-hover">
+            <p className="link link-hover">
               Already have an account? Please{" "}
               <Link to="/register" className="text-blue-500 text-lg underline">
                 Register
               </Link>
-            </a>
+            </p>
           </div>
           <p>
             Login with{" "}
-            <button className="btn btn-ghost" onClick={handleGoogleLogin}>
+            <button className="btn btn-ghost" onClick={handleGooLogin}>
               Google
             </button>
           </p>
